@@ -1,117 +1,40 @@
-# ==========================
-# Python
-# ==========================
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+
+# Python Cache
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
 
-# ==========================
-# Virtual Environment
-# ==========================
-venv/
-.venv/
-env/
-ENV/
-
-# ==========================
-# Environment Variables
-# ==========================
-.env
-.env.*
-!.env.example
-
-# ==========================
-# Jupyter Notebook
-# ==========================
-.ipynb_checkpoints/
-
-# ==========================
-# IDE Settings
-# ==========================
-.vscode/
-.idea/
-
-# ==========================
-# macOS
-# ==========================
-.DS_Store
-
-# ==========================
-# Windows
-# ==========================
-Thumbs.db
-Desktop.ini
-
-# ==========================
-# Logs
-# ==========================
-*.log
-logs/
-
-# ==========================
-# Testing
-# ==========================
-.pytest_cache/
-.coverage
-htmlcov/
-
-# ==========================
-# Type Checkers
-# ==========================
-.mypy_cache/
-.pyre/
-.pytype/
-
-# ==========================
-# Build & Distribution
-# ==========================
+# Distribution
 build/
 dist/
 *.egg-info/
-.eggs/
 
-# ==========================
-# Package Managers
-# ==========================
-pip-wheel-metadata/
+# IDE Files
+.vscode/
+.idea/
 
-# ==========================
-# Streamlit
-# ==========================
-.streamlit/secrets.toml
+# macOS
+.DS_Store
 
-# ==========================
-# Local Databases
-# ==========================
-*.db
-*.sqlite
-*.sqlite3
+# Windows
+Thumbs.db
 
-# ==========================
-# Vector Databases
-# ==========================
-chroma/
-.chromadb/
+# Logs
+*.log
 
-# ==========================
-# Temporary Files
-# ==========================
-*.tmp
-*.temp
-*.bak
-*.swp
+# Jupyter
+.ipynb_checkpoints/
 
-# ==========================
-# Runtime Files
-# ==========================
-*.pid
-*.seed
+# Testing
+.pytest_cache/
 
-# ==========================
-# Generated Files
-# ==========================
-output/
-outputs/
-generated/
+# Coverage
+.coverage
+htmlcov/

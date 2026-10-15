@@ -1,20 +1,38 @@
-import sys
-import platform
+import os
+from dotenv import load_dotenv
+from google import genai
 
+# Load environment variables
+load_dotenv()
 
-def main():
-    print("=" * 50)
-    print("Generative AI Development Environment")
-    print("=" * 50)
+# Read the API key
+api_key = os.getenv("GEMINI_API_KEY")
 
-    print(f"Python Version : {sys.version}")
-    print(f"Platform       : {platform.system()} {platform.release()}")
-    print(f"Architecture   : {platform.machine()}")
+if not api_key:
+    raise ValueError("GEMINI_API_KEY not found in the .env file.")
 
-    print("\nEnvironment setup completed successfully.")
-    print("Your system is ready for Generative AI development.")
+# Create Gemini client
+client = genai.Client(api_key=api_key)
 
+print("=" * 50)
+print("      Text Generation with Gemini")
+print("=" * 50)
 
-if __name__ == "__main__":
-    main()
+while True:
+    prompt = input("\nEnter your prompt (type 'exit' to quit): ")
 
+    if prompt.lower() == "exit":
+        print("\nThank you for using Gemini!")
+        break
+
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.8-flash",
+            contents=prompt
+        )
+
+        print("\nGenerated Response:\n")
+        print(response.text)
+
+    except Exception as error:
+        print(f"\nError: {error}")
