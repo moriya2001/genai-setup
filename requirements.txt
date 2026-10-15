@@ -1,0 +1,100 @@
+# ==========================
+# Core Utilities
+# ==========================
+python-dotenv
+requests
+httpx
+tqdm
+rich
+
+# ==========================
+# Data Processing
+# ==========================
+numpy
+pandas
+
+# ==========================
+# Data Visualization
+# ==========================
+matplotlib
+plotly
+
+# ==========================
+# Jupyter Environment
+# ==========================
+jupyter
+notebook
+ipykernel
+
+# ==========================
+# Document Processing
+# ==========================
+pypdf
+python-docx
+openpyxl
+
+# ==========================
+# Image Processing
+# ==========================
+Pillow
+
+# ==========================
+# Validation
+# ==========================
+jsonschema
+pydantic
+
+# ==========================
+# AI & LLM Providers
+# ==========================
+openai
+google-genai
+anthropic
+groq
+
+# ==========================
+# LangChain Ecosystem
+# ==========================
+langchain
+langchain-core
+langchain-community
+langchain-openai
+langchain-google-genai
+
+# ==========================
+# Vector Databases
+# ==========================
+chromadb
+faiss-cpu
+
+# ==========================
+# Embeddings
+# ==========================
+sentence-transformers
+
+# ==========================
+# Tokenizers
+# ==========================
+tiktoken
+
+# ==========================
+# Web Framework
+# ==========================
+fastapi
+uvicorn
+
+# ==========================
+# Web Applications
+# ==========================
+streamlit
+gradio
+
+# ==========================
+# Machine Learning
+# ==========================
+scikit-learn
+
+# ==========================
+# Environment Testing
+# ==========================
+pytest
