@@ -1,117 +1,27 @@
-# ==========================
-# Python
-# ==========================
+# Virtual Environment
+venv/
+.env/
+
+# Python Cache
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
 
-# ==========================
-# Virtual Environment
-# ==========================
-venv/
-.venv/
-env/
-ENV/
-
-# ==========================
-# Environment Variables
-# ==========================
-.env
-.env.*
-!.env.example
-
-# ==========================
-# Jupyter Notebook
-# ==========================
-.ipynb_checkpoints/
-
-# ==========================
-# IDE Settings
-# ==========================
-.vscode/
-.idea/
-
-# ==========================
-# macOS
-# ==========================
-.DS_Store
-
-# ==========================
-# Windows
-# ==========================
-Thumbs.db
-Desktop.ini
-
-# ==========================
-# Logs
-# ==========================
-*.log
-logs/
-
-# ==========================
-# Testing
-# ==========================
-.pytest_cache/
-.coverage
-htmlcov/
-
-# ==========================
-# Type Checkers
-# ==========================
-.mypy_cache/
-.pyre/
-.pytype/
-
-# ==========================
-# Build & Distribution
-# ==========================
+# Build Files
 build/
 dist/
 *.egg-info/
-.eggs/
 
-# ==========================
-# Package Managers
-# ==========================
-pip-wheel-metadata/
+# IDE Files
+.vscode/
+.idea/
 
-# ==========================
-# Streamlit
-# ==========================
-.streamlit/secrets.toml
+# OS Files
+.DS_Store
+Thumbs.db
 
-# ==========================
-# Local Databases
-# ==========================
-*.db
-*.sqlite
-*.sqlite3
+# Jupyter
+.ipynb_checkpoints/
 
-# ==========================
-# Vector Databases
-# ==========================
-chroma/
-.chromadb/
-
-# ==========================
-# Temporary Files
-# ==========================
-*.tmp
-*.temp
-*.bak
-*.swp
-
-# ==========================
-# Runtime Files
-# ==========================
-*.pid
-*.seed
-
-# ==========================
-# Generated Files
-# ==========================
-output/
-outputs/
-generated/
+# Logs
+*.log

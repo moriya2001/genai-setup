@@ -1,20 +1,47 @@
-import sys
-import platform
+import os
+import warnings
 
+# Suppress unnecessary warnings
+warnings.filterwarnings("ignore")
+os.environ["HF_HUB_DISABLE_IMPLICIT_TOKEN_WARNING"] = "1"
 
-def main():
-    print("=" * 50)
-    print("Generative AI Development Environment")
-    print("=" * 50)
+from transformers import AutoTokenizer
 
-    print(f"Python Version : {sys.version}")
-    print(f"Platform       : {platform.system()} {platform.release()}")
-    print(f"Architecture   : {platform.machine()}")
+print("=" * 50)
+print("      GPT-2 Tokenization Demo")
+print("=" * 50)
 
-    print("\nEnvironment setup completed successfully.")
-    print("Your system is ready for Generative AI development.")
+# Load the pretrained GPT-2 tokenizer
+tokenizer = AutoTokenizer.from_pretrained("gpt2")
 
+# Get user input
+text = input("\nEnter a sentence: ").strip()
 
-if __name__ == "__main__":
-    main()
+# Check for empty input
+if not text:
+    print("\nError: Please enter a valid sentence.")
+    exit()
 
+# Generate tokens and token IDs
+tokens = tokenizer.tokenize(text)
+token_ids = tokenizer.encode(text)
+
+# Display results
+print("\n" + "=" * 50)
+print("Original Text")
+print("-" * 50)
+print(text)
+
+print("\nTokens")
+print("-" * 50)
+print(tokens)
+
+print("\nToken IDs")
+print("-" * 50)
+print(token_ids)
+
+print("\nTotal Number of Tokens")
+print("-" * 50)
+print(len(token_ids))
+
+print("=" * 50)
