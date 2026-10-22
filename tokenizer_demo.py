@@ -1,11 +1,11 @@
 import os
 import warnings
+from transformers import AutoTokenizer
 
 # Suppress unnecessary warnings
 warnings.filterwarnings("ignore")
 os.environ["HF_HUB_DISABLE_IMPLICIT_TOKEN_WARNING"] = "1"
 
-from transformers import AutoTokenizer
 
 print("=" * 50)
 print("      GPT-2 Tokenization Demo")
