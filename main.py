@@ -1,20 +1,33 @@
-import sys
-import platform
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+# Example sentence
+tokens = ["The", "cat", "sat", "on", "the", "mat"]
 
-def main():
-    print("=" * 50)
-    print("Generative AI Development Environment")
-    print("=" * 50)
+# Example attention matrix
+attention = np.array([
+    [0.30,0.20,0.10,0.10,0.15,0.15],
+    [0.10,0.35,0.20,0.10,0.10,0.15],
+    [0.05,0.20,0.40,0.15,0.10,0.10],
+    [0.10,0.10,0.20,0.40,0.10,0.10],
+    [0.20,0.10,0.10,0.10,0.35,0.15],
+    [0.10,0.15,0.15,0.10,0.20,0.30]
+])
 
-    print(f"Python Version : {sys.version}")
-    print(f"Platform       : {platform.system()} {platform.release()}")
-    print(f"Architecture   : {platform.machine()}")
+plt.figure(figsize=(8,6))
 
-    print("\nEnvironment setup completed successfully.")
-    print("Your system is ready for Generative AI development.")
+sns.heatmap(
+    attention,
+    annot=True,
+    cmap="Blues",
+    xticklabels=tokens,
+    yticklabels=tokens
+)
 
+plt.title("Transformer Attention Visualization")
+plt.xlabel("Key Tokens")
+plt.ylabel("Query Tokens")
 
-if __name__ == "__main__":
-    main()
-
+plt.tight_layout()
+plt.show()

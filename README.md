@@ -1,48 +1,65 @@
-# Text Generation with Gemini
-## Installation
-### Windows
+#  Visualizing Attention in a Transformer
 
-```bash
-python -m venv .venv
+This project demonstrates how the **self-attention mechanism** in a Transformer works by visualizing attention scores as a heatmap. Instead of training a Transformer model, this demo uses a predefined attention matrix to help learners understand how words in a sentence attend to one another.
+
+## Project Structure
+
+```
+attention-visualization/
+│
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
-Activate:
+## Step 1: Create a Virtual Environment
+
+Open the integrated terminal and run:
 
 ```bash
-.venv\Scripts\activate
+python -m venv venv
 ```
 
-### macOS/Linux
+---
+
+## Step 2: Activate the Virtual Environment
+
+**Windows**
 
 ```bash
-python3 -m venv .venv
+venv\Scripts\activate
 ```
 
-Activate:
+**macOS/Linux**
 
 ```bash
-source .venv/bin/activate
+source venv/bin/activate
 ```
 
-Install dependencies:
+After activation, the terminal should display `(venv)`.
+
+---
+
+## Step 3: Install the Required Libraries
+
+Install the project dependencies using:
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
+This installs:
 
-## Configure the API Key
-
-Create a `.env` file in the project root.
-
-```env
-GEMINI_API_KEY=your_api_key_here
-```
+- NumPy
+- Matplotlib
+- Seaborn
 
 ---
 
-## Run the Project
+## Step 4: Run the Project
+
+Execute the program with:
 
 ```bash
 python main.py
@@ -50,28 +67,16 @@ python main.py
 
 ---
 
-## Example
+## Expected Output
 
-Input:
-
-```
-Explain Artificial Intelligence.
-```
-
-Output:
+A heatmap window will appear showing the attention scores between the words in the sentence:
 
 ```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
+The cat sat on the mat
 ```
 
----
-
-## Project Structure
-
-Text-Generation-Demo/
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── main.py
+- Rows represent **Query** tokens.
+- Columns represent **Key** tokens.
+- Darker cells indicate higher attention scores.
+- Each row represents the attention distribution for one token.
+````
