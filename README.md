@@ -1,77 +1,60 @@
-# Text Generation with Gemini
-## Installation
-### Windows
+# Examining Responsible AI Concerns
 
-```bash
-python -m venv .venv
-```
+## Overview
 
-Activate:
+Artificial Intelligence is increasingly used in applications such as recruitment, healthcare, education, finance, and customer service. While AI can improve efficiency and automate decision-making, it can also introduce ethical risks if not designed responsibly.
 
-```bash
-.venv\Scripts\activate
-```
-
-### macOS/Linux
-
-```bash
-python3 -m venv .venv
-```
-
-Activate:
-
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Configure the API Key
-
-Create a `.env` file in the project root.
-
-```env
-GEMINI_API_KEY=your_api_key_here
-```
-
----
-
-## Run the Project
-
-```bash
-python main.py
-```
-
----
-
-## Example
-
-Input:
-
-```
-Explain Artificial Intelligence.
-```
-
-Output:
-
-```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
-```
+This project demonstrates how a Large Language Model (LLM) analyses a user prompt to identify potential Responsible AI concerns. The application evaluates the prompt against key Responsible AI principles, highlights potential risks, and provides recommendations for creating fair, transparent, and trustworthy AI systems.
 
 ---
 
 ## Project Structure
 
-Text-Generation-Demo/
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── main.py
+```text
+responsible-ai-demo/
+│── main.py
+│── requirements.txt
+│── .env
+│── .gitignore
+│── README.md
+```
+
+---
+
+# Project Workflow
+
+```text
+               +----------------------+
+               |     User Prompt      |
+               +----------+-----------+
+                          |
+                          v
+              +-------------------------+
+              |  Send Prompt to Groq    |
+              |       LLM API           |
+              +-----------+-------------+
+                          |
+                          v
+          +----------------------------------+
+          | Analyse Responsible AI Principles |
+          +----------------+-----------------+
+                           |
+        +------------------+-------------------+
+        |                  |                   |
+        v                  v                   v
+    Detect Bias      Check Privacy      Evaluate Safety
+        |                  |                   |
+        +------------------+-------------------+
+                           |
+                           v
+          +----------------------------------+
+          | Generate Recommendations & Score |
+          +----------------+-----------------+
+                           |
+                           v
+               +--------------------------+
+               | Display AI Analysis      |
+               +--------------------------+
+```
+
+---
