@@ -1,20 +1,30 @@
-import sys
-import platform
+# Import the list of prompts
+from prompts.prompts import PROMPTS
+
+# Import both language models
+from models.model_config import ask_gemini, ask_phi
+
+# Import helper function
+from utils.helper import compare
 
 
-def main():
-    print("=" * 50)
-    print("Generative AI Development Environment")
-    print("=" * 50)
+with open("outputs/responses.txt", "w", encoding="utf-8") as file:
 
-    print(f"Python Version : {sys.version}")
-    print(f"Platform       : {platform.system()} {platform.release()}")
-    print(f"Architecture   : {platform.machine()}")
+    for prompt in PROMPTS:
 
-    print("\nEnvironment setup completed successfully.")
-    print("Your system is ready for Generative AI development.")
+        gemini_response, phi_response = compare(
+            prompt,
+            ask_gemini,
+            ask_phi
+        )
 
+        file.write("=" * 100 + "\n")
+        file.write(f"PROMPT\n{prompt}\n\n")
 
-if __name__ == "__main__":
-    main()
+        file.write("PROPRIETARY MODEL (Gemini 3.6 Flash)\n")
+        file.write("-" * 80 + "\n")
+        file.write(gemini_response + "\n\n")
 
+        file.write("OPEN-SOURCE MODEL (Phi-3)\n")
+        file.write("-" * 80 + "\n")
+        file.write(phi_response + "\n\n")
