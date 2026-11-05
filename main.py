@@ -13,7 +13,7 @@ api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     raise ValueError("GROQ_API_KEY not found. Please check your .env file.")
 
-model = os.getenv("MODEL", "llama-3.3-70b-versatile")
+model = os.getenv("MODEL", "openai/gpt-oss-120b")
 
 # ----------------------------------------------------
 # Initialize Groq Client
