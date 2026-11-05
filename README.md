@@ -1,77 +1,67 @@
-# Text Generation with Gemini
+# Zero-Shot Prompting in Practice
+
+## Overview
+
+This project demonstrates **Zero-Shot Prompting**, where a Large Language Model completes a task using only the user's instruction without any examples.
+
+## Requirements
+
+- Python 3.10 or later
+- Groq API Key
+
 ## Installation
-### Windows
+
+### 1. Create a Virtual Environment
 
 ```bash
-python -m venv .venv
+python -m venv venv
 ```
 
-Activate:
+### 2. Activate the Virtual Environment
+
+**Windows**
 
 ```bash
-.venv\Scripts\activate
+venv\Scripts\activate
 ```
 
-### macOS/Linux
+**macOS/Linux**
 
 ```bash
-python3 -m venv .venv
+source venv/bin/activate
 ```
 
-Activate:
-
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
+### 4. Configure the Environment
 
-## Configure the API Key
-
-Create a `.env` file in the project root.
+Open the `.env` file and add your Groq API key.
 
 ```env
-GEMINI_API_KEY=your_api_key_here
+GROQ_API_KEY=your_groq_api_key_here
+MODEL=llama-3.3-70b-versatile
 ```
 
----
-
-## Run the Project
+### 5. Run the Application
 
 ```bash
 python main.py
 ```
 
----
-
 ## Example
 
-Input:
+**Input**
 
 ```
-Explain Artificial Intelligence.
+Explain Artificial Intelligence in simple terms.
 ```
 
-Output:
+**Output**
 
 ```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
+Artificial Intelligence (AI) enables computers to perform tasks that normally require human intelligence, such as learning, understanding language, solving problems, and making decisions. It powers technologies like chatbots, recommendation systems, voice assistants, and self-driving cars.
 ```
-
----
-
-## Project Structure
-
-Text-Generation-Demo/
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── main.py
