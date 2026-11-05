@@ -1,30 +1,47 @@
-# Text Generation with Gemini
-## Installation
+# One-Shot Prompting with a Single Example
+
+## Overview
+
+This project demonstrates **One-Shot Prompting**, a prompt engineering technique where a Large Language Model (LLM) is given **one example** before receiving the actual task. The example teaches the model the expected input and output format, helping it produce more accurate and consistent responses.
+
+In this project, we use the **Groq API** with the **Llama 3.3 70B Versatile** model to classify customer feedback into predefined categories.
+
+---
+
+## Project Structure
+
+```
+One-Shot-Prompting/
+│
+├── venv/
+├── .env
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+## Create a Virtual Environment
+
 ### Windows
 
 ```bash
-python -m venv .venv
-```
-
-Activate:
-
-```bash
-.venv\Scripts\activate
+python -m venv venv
+venv\Scripts\activate
 ```
 
 ### macOS/Linux
 
 ```bash
-python3 -m venv .venv
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-Activate:
+---
 
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -34,15 +51,17 @@ pip install -r requirements.txt
 
 ## Configure the API Key
 
-Create a `.env` file in the project root.
+Create a `.env` file in the project folder.
 
-```env
-GEMINI_API_KEY=your_api_key_here
+```text
+GROQ_API_KEY=your_api_key_here
 ```
+
+Replace `your_api_key_here` with your Groq API key.
 
 ---
 
-## Run the Project
+## Run the Application
 
 ```bash
 python main.py
@@ -50,28 +69,29 @@ python main.py
 
 ---
 
-## Example
-
-Input:
+## Expected Output
 
 ```
-Explain Artificial Intelligence.
+==================================================
+ONE-SHOT PROMPTING DEMO
+==================================================
+
+Customer Feedback:
+"The package arrived two days late, but it was in perfect condition."
+
+Classification:
+Delivery
+
+==================================================
 ```
 
-Output:
-
-```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
-```
+> **Note:** The exact wording of the classification may vary slightly depending on the model.
 
 ---
 
-## Project Structure
+## What You Will Learn
 
-Text-Generation-Demo/
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── main.py
+- Understand the concept of One-Shot Prompting.
+- Learn how a single example guides an LLM.
+- Use the Groq API to interact with a Large Language Model.
+- Observe how a single example improves response consistency.

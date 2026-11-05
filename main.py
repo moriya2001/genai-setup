@@ -1,20 +1,77 @@
-import sys
-import platform
+import os
+from dotenv import load_dotenv
+from groq import Groq
 
+# ----------------------------------------------------
+# Load Environment Variables
+# ----------------------------------------------------
 
-def main():
-    print("=" * 50)
-    print("Generative AI Development Environment")
-    print("=" * 50)
+load_dotenv()
 
-    print(f"Python Version : {sys.version}")
-    print(f"Platform       : {platform.system()} {platform.release()}")
-    print(f"Architecture   : {platform.machine()}")
+api_key = os.getenv("GROQ_API_KEY")
 
-    print("\nEnvironment setup completed successfully.")
-    print("Your system is ready for Generative AI development.")
+if not api_key:
+    raise ValueError("GROQ_API_KEY not found. Please check your .env file.")
 
+# ----------------------------------------------------
+# Initialize Groq Client
+# ----------------------------------------------------
 
-if __name__ == "__main__":
-    main()
+client = Groq(api_key=api_key)
 
+# ----------------------------------------------------
+# One-Shot Prompt
+# ----------------------------------------------------
+
+prompt = """
+You are an AI assistant that classifies customer feedback into one of the following categories:
+
+- Billing
+- Customer Support
+- Product Quality
+- Delivery
+
+Example:
+
+Customer Feedback:
+"I was charged twice for my subscription this month."
+
+Category:
+Billing
+
+Now classify the following customer feedback.
+
+Customer Feedback:
+"The package arrived two days late, but it was in perfect condition."
+
+Category:
+"""
+
+response = client.chat.completions.create(
+    model="llama-3.3-70b-versatile",
+    messages=[
+        {
+            "role": "user",
+            "content": prompt
+        }
+    ],
+    temperature=0
+)
+
+# ----------------------------------------------------
+# Display Output
+# ----------------------------------------------------
+
+print("=" * 50)
+print("ONE-SHOT PROMPTING DEMO")
+print("=" * 50)
+print()
+
+print("Customer Feedback:")
+print('"The package arrived two days late, but it was in perfect condition."')
+
+print("\nClassification:")
+print(response.choices[0].message.content.strip())
+
+print()
+print("=" * 50)
