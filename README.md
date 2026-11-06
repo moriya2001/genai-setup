@@ -1,77 +1,75 @@
-# Text Generation with Gemini
-## Installation
+# Few-Shot Prompting with an Example Set
+
+This project demonstrates **Few-Shot Prompting**, a prompting technique where multiple input-output examples are included in the prompt to help the language model understand the expected pattern before solving a new task.
+
+## Project Structure
+
+```text
+Few-Shot-Prompting-Demo/
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+## Create a Virtual Environment
+
 ### Windows
 
 ```bash
-python -m venv .venv
-```
-
-Activate:
-
-```bash
-.venv\Scripts\activate
+python -m venv venv
+venv\Scripts\activate
 ```
 
 ### macOS/Linux
 
 ```bash
-python3 -m venv .venv
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-Activate:
-
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
+## Configure the Environment Variable
 
-## Configure the API Key
-
-Create a `.env` file in the project root.
+Create a `.env` file in the project root directory and add your Groq API key.
 
 ```env
-GEMINI_API_KEY=your_api_key_here
+GROQ_API_KEY=your_groq_api_key_here
 ```
 
----
-
-## Run the Project
+## Run the Program
 
 ```bash
 python main.py
 ```
 
----
+## Expected Output
 
-## Example
+The program sends a few labelled examples along with a new input to the language model. Based on the patterns learned from the examples, the model predicts the sentiment of the new text.
+
+Example:
+
+```text
+============================================================
+FEW-SHOT PROMPTING DEMO
+============================================================
+
+Examples Provided:
+------------------------------------------------------------
+4 labelled sentiment examples
 
 Input:
+------------------------------------------------------------
+"The phone has excellent battery life, but the camera quality is disappointing."
 
+Classification:
+------------------------------------------------------------
+Negative
+
+============================================================
 ```
-Explain Artificial Intelligence.
-```
-
-Output:
-
-```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
-```
-
----
-
-## Project Structure
-
-Text-Generation-Demo/
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── main.py
