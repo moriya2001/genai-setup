@@ -1,20 +1,66 @@
-import sys
-import platform
+import os
+from dotenv import load_dotenv
+from groq import Groq
+
+# Load environment variables
+load_dotenv()
+
+# Create Groq client
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY")
+)
+
+MODEL_NAME = "openai/gpt-oss-120b"
+
+
+def classify_text(text: str) -> str:
+    prompt = f"""
+You are a text classification assistant.
+
+Classify the given text into exactly ONE of the following categories:
+
+- Technology
+- Sports
+- Business
+- Entertainment
+
+Rules:
+1. Return ONLY the category name.
+2. Do not explain your answer.
+3. Do not generate additional text.
+
+Text:
+\"\"\"{text}\"\"\"
+"""
+
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        temperature=0
+    )
+
+    return response.choices[0].message.content.strip()
 
 
 def main():
-    print("=" * 50)
-    print("Generative AI Development Environment")
-    print("=" * 50)
+    print("=" * 60)
+    print("TEXT CLASSIFICATION DEMO")
+    print("=" * 60)
 
-    print(f"Python Version : {sys.version}")
-    print(f"Platform       : {platform.system()} {platform.release()}")
-    print(f"Architecture   : {platform.machine()}")
+    text = input("\nEnter text to classify:\n\n")
 
-    print("\nEnvironment setup completed successfully.")
-    print("Your system is ready for Generative AI development.")
+    category = classify_text(text)
+
+    print("\nPredicted Category:")
+    print(category)
+
+    print("=" * 60)
 
 
 if __name__ == "__main__":
     main()
-

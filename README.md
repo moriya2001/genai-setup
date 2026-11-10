@@ -1,77 +1,54 @@
-# Text Generation with Gemini
-## Installation
-### Windows
+# Prompting for Text Classification
 
-```bash
-python -m venv .venv
-```
+## Overview
 
-Activate:
-
-```bash
-.venv\Scripts\activate
-```
-
-### macOS/Linux
-
-```bash
-python3 -m venv .venv
-```
-
-Activate:
-
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Configure the API Key
-
-Create a `.env` file in the project root.
-
-```env
-GEMINI_API_KEY=your_api_key_here
-```
-
----
-
-## Run the Project
-
-```bash
-python main.py
-```
-
----
-
-## Example
-
-Input:
-
-```
-Explain Artificial Intelligence.
-```
-
-Output:
-
-```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
-```
+This project demonstrates how **Prompt Engineering** can be used to perform **Text Classification** using the **Groq API** and a Large Language Model (LLM). Rather than training a machine learning model, the application uses a well-structured prompt to instruct the language model to classify input text into one of several predefined categories. This approach highlights how prompt engineering can enable LLMs to perform classification tasks accurately through natural language instructions alone.
 
 ---
 
 ## Project Structure
 
-Text-Generation-Demo/
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── main.py
+```
+Text-Classification-Demo/
+│── main.py
+│── requirements.txt
+│── README.md
+│── .gitignore
+│── .env
+```
+
+---
+
+## Project Workflow
+
+```text
+                  User Enters Text
+                          │
+                          ▼
+              Construct Classification Prompt
+                          │
+                          ▼
+                 Send Prompt to Groq API
+                          │
+                          ▼
+          LLM Analyses the Input Text
+                          │
+                          ▼
+      Predict the Most Suitable Category
+                          │
+                          ▼
+          Display the Classification Result
+```
+
+---
+
+## Categories Used
+
+The model classifies the input into one of the following categories:
+
+- Technology
+- Sports
+- Business
+- Entertainment
+
+---
