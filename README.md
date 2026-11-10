@@ -1,77 +1,54 @@
-# Text Generation with Gemini
-## Installation
-### Windows
+# Prompting for Summarisation
 
-```bash
-python -m venv .venv
-```
+## Overview
 
-Activate:
+This project demonstrates how prompt engineering can be used to generate summaries in different formats using the Groq API and the Llama 3.3 70B Versatile model. Although the source text remains the same, changing the prompt allows the Large Language Model (LLM) to produce summaries with varying levels of detail, structure, and intended audience.
 
-```bash
-.venv\Scripts\activate
-```
-
-### macOS/Linux
-
-```bash
-python3 -m venv .venv
-```
-
-Activate:
-
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Configure the API Key
-
-Create a `.env` file in the project root.
-
-```env
-GEMINI_API_KEY=your_api_key_here
-```
-
----
-
-## Run the Project
-
-```bash
-python main.py
-```
-
----
-
-## Example
-
-Input:
-
-```
-Explain Artificial Intelligence.
-```
-
-Output:
-
-```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
-```
+The project illustrates how effective prompt design can significantly influence the quality and presentation of AI-generated summaries.
 
 ---
 
 ## Project Structure
 
-Text-Generation-Demo/
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── main.py
+```
+Prompting_for_Summarisation/
+│── main.py              # Main application containing summarisation prompts
+│── requirements.txt     # Project dependencies
+│── README.md            # Project documentation
+│── .gitignore           # Files ignored by Git
+│── .env                 # Stores the Groq API key
+```
+
+---
+
+## Project Workflow
+
+```
+                +----------------------+
+                |   Input Text         |
+                +----------+-----------+
+                           |
+                           v
+               +------------------------+
+               | Prompt Engineering     |
+               | (Different Prompts)    |
+               +----------+-------------+
+                          |
+                          v
+                +----------------------+
+                |  Groq API            |
+                | Llama 3.3 70B Model  |
+                +----------+-----------+
+                           |
+                           v
+                +----------------------+
+                | AI Generated Summary |
+                +----------+-----------+
+                           |
+                           v
+        +---------------------------------------+
+        | Display Results in the Terminal       |
+        +---------------------------------------+
+```
+
+---
