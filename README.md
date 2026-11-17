@@ -1,77 +1,55 @@
-# Text Generation with Gemini
-## Installation
-### Windows
+# Building a Reusable Prompt Template
 
-```bash
-python -m venv .venv
-```
+## Overview
 
-Activate:
+This project demonstrates how to build a **reusable prompt template** using the **Groq API** and the **Llama 3.3 70B Versatile** model.
 
-```bash
-.venv\Scripts\activate
-```
-
-### macOS/Linux
-
-```bash
-python3 -m venv .venv
-```
-
-Activate:
-
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
+Rather than writing a completely new prompt for every request, a reusable template allows you to define a consistent prompt structure with placeholders that can be dynamically filled with different tasks and inputs. This approach makes prompt engineering more efficient, scalable, and easier to maintain.
 
 ---
 
-## Configure the API Key
+# Project Structure
 
-Create a `.env` file in the project root.
-
-```env
-GEMINI_API_KEY=your_api_key_here
-```
-
----
-
-## Run the Project
-
-```bash
-python main.py
-```
-
----
-
-## Example
-
-Input:
-
-```
-Explain Artificial Intelligence.
-```
-
-Output:
-
-```
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and understanding language.
-```
-
----
-
-## Project Structure
-
-Text-Generation-Demo/
+```text
+reusable-prompt-template/
 │
-├── .env
-├── .gitignore
+├── main.py
 ├── requirements.txt
 ├── README.md
-└── main.py
+├── .env
+└── .gitignore
+```
+
+---
+
+# Project Workflow
+
+```
+                User Starts the Program
+                         │
+                         ▼
+             Enter the Required Task
+     (Summarize / Translate / Explain)
+                         │
+                         ▼
+                Enter the Input Text
+                         │
+                         ▼
+       Fill the Reusable Prompt Template
+        (Replace Task and Text Placeholders)
+                         │
+                         ▼
+          Send Prompt to the Groq API
+                         │
+                         ▼
+      Llama 3.3 70B Processes the Prompt
+                         │
+                         ▼
+           Generate the Requested Output
+                         │
+                         ▼
+          Display the AI Response
+```
+
+---
+
